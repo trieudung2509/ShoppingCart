@@ -18,7 +18,7 @@ const Menu = (props) => {
         {/* Collect the nav links, forms, and other content for toggling */}
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
-            <li><a href="#">Danh sách sản phẩm</a></li>
+            <li><Link to="/product-list">Danh sách sản phẩm</Link></li>
             <li><Link to="/product-list-mng">Quản lý sản phẩm</Link></li>
             <li><a href="#">Giỏ hàng</a></li>
             <li><a href="#">Khôi phục</a></li>

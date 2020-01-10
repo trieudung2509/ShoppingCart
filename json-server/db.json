@@ -9,20 +9,18 @@
       "rating": 5,
       "description": "- Màn Retina tai thỏ 6.5\", tràn màn hình, HDR sắc nét\n- Chuẩn chống nước và chống bụi IP68\n- Face ID nhanh nhạy hơn, 1 Nano SIM + 1 eSIM\n- Tốc độ mượt mà với chip A12 Bionic 6 nhân mạnh mẽ\n- Hệ thống camera kép 12MP với cảm biến kết hợp ISP và Neural Engine",
       "trademark": "Apple",
-      "inventory": 600,
-      "count_view": 6
+      "inventory": 600
     },
     {
       "id": 2,
-      "name": "Samsung Galaxy Note 9 512GB",
+      "name": "Samsung Galaxy Note 9 512GB 123",
       "photo": "https://via.placeholder.com/680x460",
       "price_original": 168,
       "discount": 20,
       "rating": 5,
       "description": "Màn hình Super AMOLED, 6.4\", Quad HD+ (2K+)\nHệ điều hành Android 8.1 (Oreo)\nCamera sau 2 camera 12 MP\nCamera trước 8 MP\nCPU Exynos 9810 8 nhân 64 bit",
       "trademark": "Samsung",
-      "inventory": 400,
-      "count_view": 8
+      "inventory": 400
     },
     {
       "id": 3,
@@ -1033,14 +1031,50 @@
       "count_view": 0
     },
     {
-      "id": 87,
+      "id": 88,
+      "name": "Chip 103",
+      "photo": "https://via.placeholder.com/680x460",
+      "price_original": 12,
+      "discount": 0,
+      "rating": 5,
+      "description": "Khung nhôm nguyên khối seri 6000 - Màn hình IPS LCD 6\" FHD - Camera kép ống kính ZEISS 12MP + 13MP \nCamera selfie ZEISS 16MP Chip Qualcomm Snapdragon 660 8 nhân - RAM 4GB, ROM 64GB, hỗ trợ thẻ nhớ microSD tối đa 256GB",
+      "trademark": "OPPO",
+      "inventory": 2,
+      "count_view": 0
+    },
+    {
+      "id": 89,
       "name": "kenpos121",
       "photo": "https://via.placeholder.com/680x460",
-      "price_original": 100,
+      "price_original": 12,
       "discount": 1,
       "rating": 5,
-      "description": "123",
-      "inventory": 23,
+      "description": "ok ok ",
+      "trademark": "Samsung",
+      "inventory": 12
+    },
+    {
+      "id": 90,
+      "name": "kenpos121",
+      "photo": "https://via.placeholder.com/680x460",
+      "price_original": 12,
+      "discount": 0,
+      "rating": 2,
+      "description": "2222",
+      "trademark": "Apple",
+      "inventory": 2,
+      "count_view": 0
+    },
+    {
+      "id": 91,
+      "name": "sss",
+      "photo": "https://via.placeholder.com/680x460",
+      "price_original": 0,
+      "discount": 0,
+      "rating": 3,
+      "description": "sss",
+      "trademark": "Không xác định",
+      "inventory": 1,
       "count_view": 0
     }
   ],

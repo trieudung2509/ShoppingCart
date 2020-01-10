@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import itemEditing from './itemEditing';
 import products from './products';
+import search from './search';
 
 const appReducers = combineReducers({
-    itemEditing,
-    products
+    products,
+    search
 });
 
 export default appReducers;

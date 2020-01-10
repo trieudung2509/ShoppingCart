@@ -3,7 +3,7 @@ import ProductItemMng from '../components/ProductItemMng';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { actAddProductRequest } from '../actions/index';
+import { actAddProductRequest,actGetProductRequest,actUpdateProductRequest } from '../actions/index';
 class ProductActionMngPage extends Component {
     constructor(props) {
       super(props);
@@ -15,7 +15,52 @@ class ProductActionMngPage extends Component {
           discount : 0,
           rating : 3,
           description : '',
-          inventory : 0
+          inventory : 0,
+          trademark : 'Không xác định'
+        }
+    }
+
+    // static getDerivedStateFromProps(nextProps) {
+    //   if (nextProps && nextProps.products) {
+    //       let { products } = nextProps;
+    //       console.log(products);
+    //        return {
+    //           id : products.id,
+    //           name : products.name,
+    //           photo:  products.photo,
+    //           price_original : products.price_original,
+    //           discount : products.discount,
+    //           rating : products.rating,
+    //           description : products.description,
+    //           inventory : products.inventory,
+    //           trademark: products.trademark,
+    //       }
+    //   }
+    // }
+
+    componentWillReceiveProps(nextProps) {
+  		 console.log(nextProps);
+  		if(nextProps && nextProps.products) {
+  			var { products } = nextProps;
+  			this.setState({
+  				id: products.id,
+  				name: products.name,
+  				photo: products.photo,
+  				price_original: products.price_original,
+  				discount: products.discount,
+  				rating: products.rating,
+  				description: products.description,
+  				trademark: products.trademark,
+  				inventory: products.inventory
+  			});
+  		}
+  	}
+
+    componentDidMount() {
+        let { match } = this.props;
+        if (match) {
+            let id = match.params.Id;
+            this.props.onEditProduct(id);
         }
     }
 
@@ -42,8 +87,13 @@ class ProductActionMngPage extends Component {
     			trademark: this.state.trademark,
     			inventory: parseInt(this.state.inventory) || 0
         };
-         product.count_view = 0;
-         this.props.onAddProduct(product);
+        if (this.state.id) {
+            this.props.onUpdateProduct(product);
+        } else {
+            product.count_view = 0;
+            this.props.onAddProduct(product);
+        }
+         history.goBack();
     }
     render() {
       return (
@@ -197,7 +247,7 @@ ProductActionMngPage.defaultProps = {
 }
 const mapStateToProps = (state) => {
   return {
-    itemEditing : state.itemEditing
+    products : state.products
   }
 }
 
@@ -205,6 +255,12 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
       onAddProduct : (product) => {
         dispatch(actAddProductRequest(product));
+      },
+      onEditProduct : (id) => {
+        dispatch(actGetProductRequest(id));
+      },
+      onUpdateProduct : (product) => {
+        dispatch(actUpdateProductRequest(product));
       }
   }
 }

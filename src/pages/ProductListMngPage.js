@@ -1,38 +1,82 @@
 import React, { Component } from 'react';
 import ProductItemMng from '../components/ProductItemMng';
+import Pagination from '../components/Pagination';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { actFetchProductsRequest } from '../actions/index';
+import { actFetchProductsRequest,actDeleteProductRequest,actSearchProduct } from '../actions/index';
+import ProductSearchControl from '../components/ProductSearchControl';
+
 
 class ProductListMngPage extends Component {
       constructor(props) {
         super(props);
+        this.state = {
+            totalRecords : '',
+            totalPages : '',
+            pageLimit : '',
+            currentPage : '',
+            startIndex : '',
+            endIndex : ''
+        }
       }
 
       componentDidMount() {
         this.props.fetchAllProducts();
       }
 
+      onDelete = (product) => {
+          this.props.onDeleteProduct(product);
+      }
+
+      onSearch = (keyword) => {
+          this.props.onSearchProduct(keyword);
+      }
+
+      onChangePage = (data) => {
+          this.setState({
+             pageLimit: data.pageLimit,
+             totalPages: data.totalPages,
+             currentPage: data.page,
+             startIndex: data.startIndex,
+             endIndex: data.endIndex
+          });
+      }
+
       render () {
-        var { products } = this.props;
+        var { products,keyword } = this.props;
+        var {
+          totalPages,
+          currentPage,
+          pageLimit,
+          startIndex,
+          endIndex
+        } = this.state;
+        var rowsPerPage = [];
+        if (keyword) {
+            products = products.filter((product) => {
+                return product.name.toLowerCase().indexOf(keyword.trim().toLowerCase()) !== -1
+            });
+        }
+
+        rowsPerPage = products.slice(startIndex, endIndex + 1);
         return (
           <div className="section product_list_mng">
             <div className="container-fluid">
               <Link className="btn btn-primary mb-15" to="/product-mng/add">Thêm sản phẩm</Link>
               <div className="box_product_control mb-15">
                 <div className="row">
-                  <div className="col-xs-6 box_search">
-                    <form>
-                      <div className="search_wrp mb-10">
-                        <div className="input-group"><input type="text" name="keyword" className="form-control" placeholder="Nhập từ khóa..." defaultValue="samsung" /><span className="input-group-btn"><button className="btn btn-primary" type="button"><i className="fa fa-search mr-5" />Tìm</button></span></div>
-                        <button type="button" className="btn btn-default btn_clear"><i className="fa fa-close" /></button>
-                      </div>
-                      <div className>Bạn đang tìm kiếm: "<strong>samsung</strong>"</div>
-                    </form>
-                  </div>
+                  <ProductSearchControl
+                    onSearch={this.onSearch}
+                    keyword={this.props.keyword}
+                    />
                   <div className="col-xs-6 box_change_pagelimit">
                     Hiển thị
-                    <select className="form-control">
+                    <select
+                      className="form-control"
+                      value={pageLimit}
+                      onChange={e => this.setState({ pageLimit: parseInt(e.target.value) })}
+                      >
+                      <option value={5}>5</option>
                       <option value={10}>10</option>
                       <option value={25}>25</option>
                       <option value={50}>50</option>
@@ -61,24 +105,23 @@ class ProductListMngPage extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                      { this.showProducts(products) }
+                      { this.showProducts(rowsPerPage) }
                   </tbody>
                 </table>
               </div>
               <div className="box_pagination">
                 <div className="row">
                   <div className="col-sm-6 box_pagination_info">
-                    <p>18 Sản phẩm | Trang 1/2</p>
+                    <p>{products.length} Sản phẩm | Trang {currentPage}/{totalPages}</p>
                   </div>
                   <div className="col-sm-6 text-right">
-                    <ul className="pagination">
-                      <li><button disabled>Đầu</button></li>
-                      <li><button disabled>Sau</button></li>
-                      <li><button className="active">1</button></li>
-                      <li><button className>2</button></li>
-                      <li><button>Tiếp</button></li>
-                      <li><button>Cuối</button></li>
-                    </ul>
+                      <Pagination
+                        totalRecords={products.length}
+                        pageLimit = {pageLimit || 5 }
+                        initialState={1}
+                        pagesToShow={5}
+                        onChangePage={this.onChangePage}
+                      />
                   </div>
                 </div>
               </div>
@@ -92,18 +135,19 @@ class ProductListMngPage extends Component {
         if (products.length > 0) {
           result = products.map((product,index) => {
             return (
-                <ProductItemMng key={index} product = {product} index={index} />
+                <ProductItemMng key={index} product = {product} index={index} onDelete = { this.onDelete }/>
             )
           })
         }else{
-          result = <tr><td className="text-center" colSpan="11">Không có sản phẩm nào!</td></tr>
+          result = <tr><td className="text-center" colSpan="12">Không có sản phẩm nào!</td></tr>
         }
         return result;
       }
     }
     const mapStateToProps = (state) => {
       return {
-        products : state.products
+        products : state.products,
+        keyword  : state.search
       }
     }
 
@@ -111,6 +155,12 @@ class ProductListMngPage extends Component {
         return {
           fetchAllProducts : () => {
               dispatch(actFetchProductsRequest());
+          },
+          onDeleteProduct : (product) => {
+            dispatch(actDeleteProductRequest(product));
+          },
+          onSearchProduct : (keyword) => {
+             dispatch(actSearchProduct(keyword));
           }
         }
       }
