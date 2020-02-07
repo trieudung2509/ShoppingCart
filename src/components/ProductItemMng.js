@@ -8,6 +8,34 @@ class ProductItemMng extends Component {
           isShowAllDesc : false
       }
   }
+  toSlug = (str) => {
+		// Chuyển hết sang chữ thường
+		str = str.toLowerCase();
+
+		// xóa dấu
+		str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
+		str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
+		str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
+		str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
+		str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
+		str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
+		str = str.replace(/(đ)/g, 'd');
+
+		// Xóa ký tự đặc biệt
+		str = str.replace(/([^0-9a-z-\s])/g, '');
+
+		// Xóa khoảng trắng thay bằng ký tự -
+		str = str.replace(/(\s+)/g, '-');
+
+		// xóa phần dự - ở đầu
+		str = str.replace(/^-+/g, '');
+
+		// xóa phần dư - ở cuối
+		str = str.replace(/-+$/g, '');
+
+		// return
+		return str;
+	}
   onDelete =  (product) => {
       if (confirm('Bạn có chắc chắn muốn xóa?')) { //eslint-disable-line
           this.props.onDelete(product);
@@ -47,11 +75,12 @@ class ProductItemMng extends Component {
 
   render() {
     let { product,index } = this.props;
+    var toSlugName = this.toSlug(product.name);
     return (
       <tr>
         <td className="col_order text-center">{index + 1}</td>
-        <td className="col_photo text-center"><a className="over" href="/product-detail/samsung-galaxy-j8-3gb32gb-vang.16"><img src={product.photo} alt="Samsung Galaxy J8 3GB/32GB Vàng" width={80} /></a></td>
-        <td className="col_name"><a className="product_title" href="/product-detail/samsung-galaxy-j8-3gb32gb-vang.16">{product.name}</a></td>
+        <td className="col_photo text-center"><Link className="over" to={`/product-detail/${product.id}/${toSlugName}`}><img src={product.photo} alt={product.name} width={80} /></Link></td>
+        <td className="col_name"><Link className="product_title" to={`/product-detail/${product.id}/${toSlugName}`}>{product.name}</Link></td>
         <td className="col_price_org text-center">{product.price_original}đ</td>
         <td className="col_discount text-center ws_nowrap">{this.showDiscount(product.discount)}</td>
         <td className="col_price_sale text-center">{parseInt(product.price_original*(100-product.discount)/100)}đ</td>

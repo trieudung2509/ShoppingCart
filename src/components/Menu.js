@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CartDropdown from '../containers/CartDropdown';
 
 const Menu = (props) => {
   return (
@@ -20,22 +21,9 @@ const Menu = (props) => {
           <ul className="nav navbar-nav">
             <li><Link to="/product-list">Danh sách sản phẩm</Link></li>
             <li><Link to="/product-list-mng">Quản lý sản phẩm</Link></li>
-            <li><a href="#">Giỏ hàng</a></li>
-            <li><a href="#">Khôi phục</a></li>
+            <li><Link to="/cart">Giỏ hàng</Link></li>
           </ul>
-          <ul className="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
-            <li className="dropdown">
-              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret" /></a>
-              <ul className="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" className="divider" />
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li>
-          </ul>
+          <CartDropdown />
         </div>{/* /.navbar-collapse */}
       </div>{/* /.container-fluid */}
       </nav>

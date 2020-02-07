@@ -4,6 +4,9 @@
 img {
 	max-width: 100%;
 }
+#bs-example-navbar-collapse-1 {
+    position: relative;
+}
 @media only screen and (min-width: 1430px) {
 	.container {
 		width: 1400px;
@@ -574,6 +577,7 @@ span.alert {
 	position: absolute;
 	right: 0;
 	top: 50%;
+	z-index: 999;
 	-webkit-transform: translate(0, -50%);
 	-moz-transform: translate(0, -50%);
 	-ms-transform: translate(0, -50%);

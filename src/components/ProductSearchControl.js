@@ -18,7 +18,9 @@ class ProductSearchControl extends Component {
         [name] : value
       });
     }
+
     componentWillReceiveProps(nextProps) {
+      console.log(nextProps);
   		if(nextProps && nextProps.keyword) {
   			this.setState({
   				keyword: nextProps.keyword,
@@ -39,7 +41,7 @@ class ProductSearchControl extends Component {
           showSearchInfo : false
       })
     }
-    
+
     render() {
         return (
           <div className="col-xs-6 box_search">

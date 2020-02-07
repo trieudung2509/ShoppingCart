@@ -1,84 +1,86 @@
 import React, { Component } from 'react';
 
 class WidgetFilterRating extends Component {
+  showRatingRange = () => {
+    var result = [];
+		var total = 0;
+		var isChecked = false;
+    result = this.props.ratingList.map((rating,index) => {
+        total = 0;
+        if (this.props.filterRating != null) {
+          isChecked = false;
+          if(rating === this.props.filterRating) isChecked = true;
+        }
+
+        this.props.products.forEach((product) => {
+  				if(product.rating >= rating) {
+  					total++;
+  				}
+  			});
+        return (
+  				<li key={index}>
+  					<div className="radio">
+  						<label>
+  							<input
+  								type="radio"
+  								className="cbk"
+  								name="rating"
+  								checked={isChecked}
+  								value={rating}
+  								onChange={this.onHandleChange}
+  							/>
+  							{ this.showRating(rating) }
+  							({total})
+  						</label>
+  					</div>
+  				</li>
+  			);
+    });
+    return result;
+  }
+
+  onHandleChange = (e) => {
+		if(e.target.type === 'radio') {
+			this.props.onFilterRating(e.target.value);
+		}
+	}
+
+  showRating = (rating) => {
+		if(rating > 0) {
+			var result = [];
+			for (var i = 1; i <= rating; i++) {
+				result.push(<li key={i}><i className="fa fa-star active"></i></li>)
+			}
+			for (var j = 1; j <= (5-rating); j++) {
+				result.push(<li key={i+j}><i className="fa fa-star"></i></li>)
+			}
+			return (
+				<div className="product_rating">
+					<ul>
+						{result}
+					</ul>
+					<span className={rating === 5 ? "title hidden" : "title"}>trở lên</span>&nbsp;
+				</div>
+			);
+		}
+	}
+
+  onUnCheckFilter = () => {
+		this.props.onUnCheckFilter();
+	}
+
   render () {
     return (
       <div className="widget widget_rating">
         <h5 className="st_title"><strong>Đánh giá</strong></h5>
         <ul>
-          <li>
-            <div className="radio">
-              <label>
-                <input type="radio" className="cbk" name="rating" defaultValue={5} />
-                <div className="product_rating">
-                  <ul>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                  </ul><span className="title hidden">trở lên</span>&nbsp;</div>(19)</label>
-            </div>
-          </li>
-          <li>
-            <div className="radio">
-              <label>
-                <input type="radio" className="cbk" name="rating" defaultValue={4} />
-                <div className="product_rating">
-                  <ul>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star" /></li>
-                  </ul><span className="title">trở lên</span>&nbsp;</div>(39)</label>
-            </div>
-          </li>
-          <li>
-            <div className="radio">
-              <label>
-                <input type="radio" className="cbk" name="rating" defaultValue={3} />
-                <div className="product_rating">
-                  <ul>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star" /></li>
-                    <li><i className="fa fa-star" /></li>
-                  </ul><span className="title">trở lên</span>&nbsp;</div>(66)</label>
-            </div>
-          </li>
-          <li>
-            <div className="radio">
-              <label>
-                <input type="radio" className="cbk" name="rating" defaultValue={2} />
-                <div className="product_rating">
-                  <ul>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star" /></li>
-                    <li><i className="fa fa-star" /></li>
-                    <li><i className="fa fa-star" /></li>
-                  </ul><span className="title">trở lên</span>&nbsp;</div>(77)</label>
-            </div>
-          </li>
-          <li>
-            <div className="radio">
-              <label>
-                <input type="radio" className="cbk" name="rating" defaultValue={1} />
-                <div className="product_rating">
-                  <ul>
-                    <li><i className="fa fa-star active" /></li>
-                    <li><i className="fa fa-star" /></li>
-                    <li><i className="fa fa-star" /></li>
-                    <li><i className="fa fa-star" /></li>
-                    <li><i className="fa fa-star" /></li>
-                  </ul><span className="title">trở lên</span>&nbsp;</div>(91)</label>
-            </div>
-          </li>
+          { this.showRatingRange() }
         </ul>
       </div>
     )
   }
+}
+WidgetFilterRating.defaultProps = {
+  ratingList: [5, 4, 3, 2, 1]
 }
 export default WidgetFilterRating;

@@ -4,23 +4,25 @@
       "id": 1,
       "name": "Apple IPhone Xs Max 256GB Bạc",
       "photo": "https://via.placeholder.com/680x460",
-      "price_original": 200,
+      "price_original": 12,
       "discount": 10,
       "rating": 5,
       "description": "- Màn Retina tai thỏ 6.5\", tràn màn hình, HDR sắc nét\n- Chuẩn chống nước và chống bụi IP68\n- Face ID nhanh nhạy hơn, 1 Nano SIM + 1 eSIM\n- Tốc độ mượt mà với chip A12 Bionic 6 nhân mạnh mẽ\n- Hệ thống camera kép 12MP với cảm biến kết hợp ISP và Neural Engine",
-      "trademark": "Apple",
-      "inventory": 600
+      "trademark": "Samsung",
+      "inventory": 589,
+      "count_view": 1
     },
     {
       "id": 2,
-      "name": "Samsung Galaxy Note 9 512GB 123",
+      "name": "Samsung Galaxy Note 9 512GB",
       "photo": "https://via.placeholder.com/680x460",
       "price_original": 168,
       "discount": 20,
       "rating": 5,
       "description": "Màn hình Super AMOLED, 6.4\", Quad HD+ (2K+)\nHệ điều hành Android 8.1 (Oreo)\nCamera sau 2 camera 12 MP\nCamera trước 8 MP\nCPU Exynos 9810 8 nhân 64 bit",
       "trademark": "Samsung",
-      "inventory": 400
+      "inventory": 395,
+      "count_view": 1
     },
     {
       "id": 3,
@@ -31,7 +33,7 @@
       "rating": 5,
       "description": "- Khung nhôm nguyên khối seri 6000\n- Màn hình IPS LCD 6\" FHD\n- Camera kép ống kính ZEISS 12MP + 13MP\n- Camera selfie ZEISS 16MP\n- Chip Qualcomm Snapdragon 660 8 nhân\n- RAM 4GB, ROM 64GB, hỗ trợ thẻ nhớ microSD tối đa 256GB",
       "trademark": "Nokia",
-      "inventory": 671,
+      "inventory": 670,
       "count_view": 1
     },
     {
@@ -44,7 +46,7 @@
       "description": "- Mặt lưng dạng sần trông lạ mắt hơn\n- Cấu hình tầm trung với con chip Mediatek MT6737T\n- RAM 1.5GB và bộ nhớ trong 8GB\n- Hỗ trợ thẻ nhớ ngoài 256GB",
       "trademark": "Samsung",
       "inventory": 888,
-      "count_view": 1
+      "count_view": 2
     },
     {
       "id": 5,
@@ -54,9 +56,8 @@
       "discount": 15,
       "rating": 5,
       "description": "- Kiểu dáng độc đáo\n- Hỗ trợ 4G\n- Trang bị các tính năng cần thiết",
-      "trademark": "Nokia",
-      "inventory": 661,
-      "count_view": 16
+      "trademark": "Samsung",
+      "inventory": 661
     },
     {
       "id": 6,
@@ -68,7 +69,7 @@
       "description": "Màn hình: 5.65\", Full HD+\nHĐH: Android 8.1 (Oreo)\nCPU: Qualcomm Snapdragon 660 8 nhân\nRAM: 4 GB, ROM: 64 GB\nCamera: 12 MP và 5 MP (2 camera), Selfie: 8 MP\nPIN: 3100 mAh",
       "trademark": "Vsmart",
       "inventory": 600,
-      "count_view": 4
+      "count_view": 24
     },
     {
       "id": 7,
@@ -80,7 +81,7 @@
       "description": "- Bộ sưu tập smartphone đỉnh cao được bổ sung thêm gam màu Jet Black mới\n- Tai nghe EarPods có thiết kế hiện đại\n- Chuẩn chống nước và chống bụi IP67\n- Nút Home cảm ứng thay thế nút Home vật lý",
       "trademark": "Apple",
       "inventory": 588,
-      "count_view": 3
+      "count_view": 7
     },
     {
       "id": 8,
@@ -92,7 +93,7 @@
       "description": "- Kiểu dáng mạnh mẽ, chắc chắn\n- Màn hình QQVGA 1,8\" đã cải thiện\n- Dung lượng pin 800mAh\n- Dung lượng pin mạnh mẽ cho phép thời gian thoại lên tới 15 giờ",
       "trademark": "Nokia",
       "inventory": 390,
-      "count_view": 5
+      "count_view": 6
     },
     {
       "id": 9,
@@ -115,8 +116,8 @@
       "rating": 5,
       "description": "- Chiếc IPhone thế hệ tiếp theo được ra mắt với nhiều cải tiến đáng kể\n- Thiết kế sang trọng với việc hoàn thiện hai mặt kính hoàn hảo\n- Hệ điều hành: iOS 11\n- Chipset: Apple A11 Bionic 64-bit 6 nhân\n- Bộ nhớ trong: 64GB, RAM 3GB",
       "trademark": "Apple",
-      "inventory": 69,
-      "count_view": 12
+      "inventory": 68,
+      "count_view": 13
     },
     {
       "id": 11,
@@ -571,8 +572,8 @@
       "rating": 1,
       "description": "Màn hình :\t2160 x 3840 pixels\nRAM :\t3 GB\nBộ nhớ trong :\t32 GB\nCPU :\tQualcomm MSM8994 Snapdragon 810, 8 Nhân, Quad-core 1.5 GHz & Quad-core 2 GHz\nGPU :\tAdreno 430\nDung lượng pin :\t3430 mAh\nThẻ SIM :\tNano Sim, 2 Sim, hỗ trợ 4G",
       "trademark": "Sony",
-      "inventory": 378,
-      "count_view": 1
+      "inventory": 377,
+      "count_view": 3
     },
     {
       "id": 49,
@@ -619,8 +620,8 @@
       "rating": 3,
       "description": "Màn hình :\t4K HDR (2160 x 3840 Pixels)\nCamera trước :\t13 MP\nCamera sau :\tCamera Motion Eye™ 19 MP\nRAM :\t4GB\nBộ nhớ trong :\tUFS 64 GB\nCPU :\tQualcomm Snapdragon 835, 8 Nhân, Octa-core (4x2.45 GHz Kryo & 4x1.9 GHz Kryo)\nDung lượng pin :\t3230 mAh\nHệ điều hành :\tAndroid™ 7.0 (Nougat)\nThẻ SIM :\tNano SIM, 2 Sim",
       "trademark": "Sony",
-      "inventory": 264,
-      "count_view": 0
+      "inventory": 263,
+      "count_view": 2
     },
     {
       "id": 53,
@@ -871,8 +872,8 @@
       "rating": 3,
       "description": "Màn hình: 4.7\", Retina HD\nHĐH: iOS 12\nCPU: Apple A11 Bionic 6 nhân\nRAM: 2 GB, ROM: 256 GB\nCamera: 12 MP, Selfie: 7 MP\nPIN: 1821 mAh",
       "trademark": "Apple",
-      "inventory": 388,
-      "count_view": 0
+      "inventory": 387,
+      "count_view": 2
     },
     {
       "id": 74,
@@ -1064,100 +1065,38 @@
       "trademark": "Apple",
       "inventory": 2,
       "count_view": 0
-    },
-    {
-      "id": 91,
-      "name": "sss",
-      "photo": "https://via.placeholder.com/680x460",
-      "price_original": 0,
-      "discount": 0,
-      "rating": 3,
-      "description": "sss",
-      "trademark": "Không xác định",
-      "inventory": 1,
-      "count_view": 0
     }
   ],
   "shopping_cart_01_cart": [
     {
       "product": {
-        "id": 1,
-        "name": "Apple IPhone Xs Max 256GB Bạc",
+        "id": 8,
+        "name": "Nokia 105 Single Sim 2017 (Xanh dương)",
         "photo": "https://via.placeholder.com/680x460",
-        "price_original": 200,
-        "discount": 10,
-        "rating": 5,
-        "description": "- Màn Retina tai thỏ 6.5\", tràn màn hình, HDR sắc nét\n- Chuẩn chống nước và chống bụi IP68\n- Face ID nhanh nhạy hơn, 1 Nano SIM + 1 eSIM\n- Tốc độ mượt mà với chip A12 Bionic 6 nhân mạnh mẽ\n- Hệ thống camera kép 12MP với cảm biến kết hợp ISP và Neural Engine",
-        "trademark": "Apple",
-        "inventory": 600,
-        "count_view": 6
+        "price_original": 10,
+        "discount": 48,
+        "rating": 3,
+        "description": "- Kiểu dáng mạnh mẽ, chắc chắn\n- Màn hình QQVGA 1,8\" đã cải thiện\n- Dung lượng pin 800mAh\n- Dung lượng pin mạnh mẽ cho phép thời gian thoại lên tới 15 giờ",
+        "trademark": "Nokia",
+        "inventory": 390
       },
-      "quantity": 1,
+      "quantity": 5,
       "id": 1
     },
     {
       "product": {
-        "id": 2,
-        "name": "Samsung Galaxy Note 9 512GB",
+        "id": 73,
+        "name": "Apple IPhone 8 256GB",
         "photo": "https://via.placeholder.com/680x460",
-        "price_original": 168,
-        "discount": 20,
-        "rating": 5,
-        "description": "Màn hình Super AMOLED, 6.4\", Quad HD+ (2K+)\nHệ điều hành Android 8.1 (Oreo)\nCamera sau 2 camera 12 MP\nCamera trước 8 MP\nCPU Exynos 9810 8 nhân 64 bit",
-        "trademark": "Samsung",
-        "inventory": 400,
-        "count_view": 8
+        "price_original": 90,
+        "discount": 0,
+        "rating": 3,
+        "description": "Màn hình: 4.7\", Retina HD\nHĐH: iOS 12\nCPU: Apple A11 Bionic 6 nhân\nRAM: 2 GB, ROM: 256 GB\nCamera: 12 MP, Selfie: 7 MP\nPIN: 1821 mAh",
+        "trademark": "Apple",
+        "inventory": 388
       },
       "quantity": 1,
       "id": 2
-    },
-    {
-      "product": {
-        "id": 35,
-        "name": "Nokia 6.1 Plus 4GB/64GB Xanh",
-        "photo": "https://via.placeholder.com/680x460",
-        "price_original": 90,
-        "discount": 20,
-        "rating": 4,
-        "description": "- Thiết kế nguyên khối trẻ trung, hiện đại\n- Màn hình: tai thỏ 5.8\"\n- Camera sau kép 16 MP và 5 MP\n- Chip Qualcomm SDM636 Snapdragon 636\n- RAM 4GB, bộ nhớ trong 64GB",
-        "trademark": "Nokia",
-        "inventory": 555,
-        "count_view": 0
-      },
-      "quantity": 2,
-      "id": 3
-    },
-    {
-      "product": {
-        "id": 12,
-        "name": "Apple IPhone 6 32GB Vàng",
-        "photo": "https://via.placeholder.com/680x460",
-        "price_original": 60,
-        "discount": 15,
-        "rating": 0,
-        "description": "- Thiết kế tinh tế, sang trọng\n- Khả năng xử lý tiên tiến, giải trí tuyệt vời\n- Công nghệ nhận diện vân tay Touch ID\n- Phiên bản bộ nhớ 32GB hoàn toàn mới",
-        "trademark": "Apple",
-        "inventory": 298,
-        "count_view": 0
-      },
-      "quantity": 1,
-      "id": 4
-    },
-    {
-      "product": {
-        "id": 48,
-        "name": "Sony Xperia Z5 Premium",
-        "photo": "https://via.placeholder.com/680x460",
-        "price_original": 200,
-        "discount": 14,
-        "rating": 1,
-        "description": "Màn hình :\t2160 x 3840 pixels\nRAM :\t3 GB\nBộ nhớ trong :\t32 GB\nCPU :\tQualcomm MSM8994 Snapdragon 810, 8 Nhân, Quad-core 1.5 GHz & Quad-core 2 GHz\nGPU :\tAdreno 430\nDung lượng pin :\t3430 mAh\nThẻ SIM :\tNano Sim, 2 Sim, hỗ trợ 4G",
-        "trademark": "Sony",
-        "inventory": 378,
-        "count_view": 1
-      },
-      "quantity": 1,
-      "id": 5
     }
   ]
 }

@@ -51,13 +51,14 @@ class ProductListMngPage extends Component {
           startIndex,
           endIndex
         } = this.state;
+
         var rowsPerPage = [];
+
         if (keyword) {
             products = products.filter((product) => {
-                return product.name.toLowerCase().indexOf(keyword.trim().toLowerCase()) !== -1
+                return product.name.toLowerCase().indexOf(keyword) !== -1 || product.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
             });
         }
-
         rowsPerPage = products.slice(startIndex, endIndex + 1);
         return (
           <div className="section product_list_mng">

@@ -47,30 +47,62 @@ import { Link }  from 'react-router-dom';
 			);
 		}
   }
+
+  showRating = (rating) => {
+    if (rating > 0) {
+        var result = [];
+        for (var i = 1; i<= rating; i++) {
+            result.push(<li key={i}><i className="fa fa-star active"></i></li>);
+        }
+        for (var j = 1; j<= (5-rating); j++) {
+            result.push(<li key={i+j}><i className="fa fa-star"></i></li>)
+        }
+        return (
+          <div className="product_rating mb-15">
+  					<ul>
+  						{result}
+  					</ul>
+				</div>
+      );
+    }
+  }
+
+  showSoldout = (inventory) => {
+		if(inventory === 0) {
+			return (
+				<div className="product_soldout">Hết hàng</div>
+			);
+		}
+	}
+
+  onAddToCart = (product,quantity) => {
+    this.props.onAddToCart(product,quantity);
+  }
   render() {
     var { product } = this.props;
     var toSlugName = this.toSlug(product.name);
     return (
       <div className="col-sm-4 col-lg-3 product_item">
         <div className="thumbnail">
+        {this.showSoldout(product.inventory)}
           <Link className="product_thumb over" to={`/product-detail/${toSlugName}.${product.id}`}><img src={product.photo} alt={product.name} /></Link>
           <div className="caption">
             <h3 className="product_title">
-            <Link to={`/product-detail/${toSlugName}.${product.id}`}>{ product.name }</Link>
+            <Link to={`/product-detail/${product.id}/${toSlugName}`}>{ product.name }</Link>
             </h3>
             <p className="product_trademark mb-5">Thương hiệu: <span>{ product.trademark }</span></p>
             { this.showPrice(product.price_original, product.discount) }
-            <div className="product_rating mb-15">
-              <ul>
-                <li><i className="fa fa-star active" /></li>
-                <li><i className="fa fa-star active" /></li>
-                <li><i className="fa fa-star active" /></li>
-                <li><i className="fa fa-star active" /></li>
-                <li><i className="fa fa-star active" /></li>
-              </ul>
-            </div>
+            {this.showRating(product.rating)}
             <p className="product_addtocart text-right">
-              <button type="button" className="btn btn-primary" data-toggle="tooltip" data-placement="top" data-original-title="Thêm vào giỏ hàng"><i className="fa fa-cart-plus" aria-hidden="true" /></button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-toggle="tooltip"
+                data-placement="top"
+                data-original-title="Thêm vào giỏ hàng"
+                onClick={ () => this.onAddToCart(product,1) }>
+              <i className="fa fa-cart-plus" aria-hidden="true" />
+              </button>
             </p>
           </div>
         </div>

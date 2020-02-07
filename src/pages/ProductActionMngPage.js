@@ -40,18 +40,18 @@ class ProductActionMngPage extends Component {
 
     componentWillReceiveProps(nextProps) {
   		 console.log(nextProps);
-  		if(nextProps && nextProps.products) {
-  			var { products } = nextProps;
+  		if(nextProps && nextProps.itemEditing) {
+  			var { itemEditing } = nextProps;
   			this.setState({
-  				id: products.id,
-  				name: products.name,
-  				photo: products.photo,
-  				price_original: products.price_original,
-  				discount: products.discount,
-  				rating: products.rating,
-  				description: products.description,
-  				trademark: products.trademark,
-  				inventory: products.inventory
+  				id: itemEditing.id,
+  				name: itemEditing.name,
+  				photo: itemEditing.photo,
+  				price_original: itemEditing.price_original,
+  				discount: itemEditing.discount,
+  				rating: itemEditing.rating,
+  				description: itemEditing.description,
+  				trademark: itemEditing.trademark,
+  				inventory: itemEditing.inventory
   			});
   		}
   	}
@@ -59,7 +59,7 @@ class ProductActionMngPage extends Component {
     componentDidMount() {
         let { match } = this.props;
         if (match) {
-            let id = match.params.Id;
+            let id = parseInt(match.params.Id);
             this.props.onEditProduct(id);
         }
     }
@@ -242,12 +242,14 @@ class ProductActionMngPage extends Component {
       )
     }
 }
+
 ProductActionMngPage.defaultProps = {
   trademarkList : ['Apple', 'Samsung', 'Nokia', 'Sony', 'Xiaomi', 'Philips', 'Vsmart', 'OPPO']
 }
+
 const mapStateToProps = (state) => {
   return {
-    products : state.products
+    itemEditing : state.itemEditing
   }
 }
 
