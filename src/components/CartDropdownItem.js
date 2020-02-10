@@ -61,7 +61,7 @@ class CartDropdownItem extends Component {
             <li className="product_item">
               <div className="row">
                 <div className="col-sm-3 pr-0">
-                  <Link className="product_thumb over" to={`/product-detail/${toSlugName}.${item.product.id}`}>
+                  <Link className="product_thumb over" to={`/product-detail/${item.product.id}/${toSlugName}`}>
                       <img src={item.product.photo} alt={item.product.name} />
                   </Link>
                 </div>

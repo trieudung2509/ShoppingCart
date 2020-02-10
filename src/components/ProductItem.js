@@ -85,7 +85,7 @@ import { Link }  from 'react-router-dom';
       <div className="col-sm-4 col-lg-3 product_item">
         <div className="thumbnail">
         {this.showSoldout(product.inventory)}
-          <Link className="product_thumb over" to={`/product-detail/${toSlugName}.${product.id}`}><img src={product.photo} alt={product.name} /></Link>
+          <Link className="product_thumb over" to={`/product-detail/${product.id}/${toSlugName}`}><img src={product.photo} alt={product.name} /></Link>
           <div className="caption">
             <h3 className="product_title">
             <Link to={`/product-detail/${product.id}/${toSlugName}`}>{ product.name }</Link>
