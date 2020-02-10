@@ -9,7 +9,7 @@ import PaymentSuccessPage from './pages/PaymentSuccessPage';
 
 const routes = [
   {
-    path : "/",
+    path : "/ShoppingCart",
     exact : true,
     main : () => <HomePage />
   },
