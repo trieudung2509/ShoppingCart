@@ -63,6 +63,7 @@ class ProductListMngPage extends Component {
         return (
           <div className="section product_list_mng">
             <div className="container-fluid">
+              <h1 className="text-center"> QUẢN LÝ SẢN PHẨM </h1>
               <Link className="btn btn-primary mb-15" to="/product-mng/add">Thêm sản phẩm</Link>
               <div className="box_product_control mb-15">
                 <div className="row">

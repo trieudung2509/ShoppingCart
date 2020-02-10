@@ -227,6 +227,7 @@ class ProductListPage extends Component {
       return (
         <div className="section product_list">
           <div className="container">
+            <h1 className="text-center" style={{ marginBottom : "30px" }}>DANH SÁCH SẢN PHẨM </h1>
             <div className="row">
               <div className="col-sm-2">
                 <div className="widget widget_title_search_filter">

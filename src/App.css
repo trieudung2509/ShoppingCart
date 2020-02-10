@@ -12,6 +12,10 @@ img {
 		width: 1400px;
 	}
 }
+.navbar-default .navbar-nav>li>a.active {
+	background: #c3c3c3;
+  color: #fff;
+}
 .over {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
