@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect,Link } from 'react-router-dom';
 import { actPaymentSuccess } from '../actions/index';
 
 class PaymentSuccessPage extends Component {
@@ -27,7 +27,10 @@ class PaymentSuccessPage extends Component {
 		return (
 			<div className="section payment_success">
 				<div className="container">
-					<h1 className="text-center"><strong className="alert alert-success" role="alert">Thanh toán thành công!</strong></h1>
+					<div className="text-center">
+						<h1><strong className="alert alert-success" role="alert">Thanh toán thành công!</strong></h1>
+						<Link exact to="/product-list" class="btn btn-primary mt-20"> Tiếp tục mua sắm </Link>
+					</div>
 				</div>
 			</div>
 		);

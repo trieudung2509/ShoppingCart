@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
           actUpdateProduct,
-          actAddToCartRequest
+          actAddToCart
         } from '../actions/index';
 class ProductDetailPage extends Component {
       constructor(props) {
@@ -222,7 +222,7 @@ class ProductDetailPage extends Component {
 const mapDispatchToProps = (dispatch, props) => {
 	return {
 		onAddToCart: (product, quantity) => {
-			dispatch(actAddToCartRequest(product, quantity));
+			dispatch(actAddToCart(product, quantity));
 		}
 	};
 };

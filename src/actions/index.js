@@ -31,52 +31,6 @@ export const actGetProduct = (product) => {
   }
 }
 
-export const actAddToCartRequest = (product,quantity) => {
-    return (dispatch) => {
-      document.getElementById('api_loading').classList.add('show');
-      callApi('shopping_cart_01_cart','GET',null).then((res) => {
-          if (res.data.length == 0) { // thực hiện thêm mới khi chưa có sản phẩm nào trong giỏ hàng.
-              return callApi('shopping_cart_01_cart','POST',{product,quantity}).then((res) => {
-                dispatch(actAddToCart(res.data.product,res.data.quantity));
-                document.getElementById('api_loading').classList.remove('show');
-              });
-          } else {
-              //tìm kiếm xem sản phẩm đã có trong giỏ hàng chưa
-              var index = -1;
-              var cart_item_id = 0;
-              var new_quantity = 0;
-              for (let i = 0; i< res.data.length; i++) {
-                  if (res.data[i].product.id == product.id) { // đã tìm thấy 1 sản phẩm trong giỏ hàng.
-                      index = i;
-                      cart_item_id = res.data[i].id;
-						          new_quantity = res.data[i].quantity + quantity;
-                      break;
-                  }
-              }
-
-              if (index != -1) { //tăng số lượng sản phẩm lên thêm 1 vì id của một sản phẩm được tìm thấy trong giỏ hàng
-                  if (new_quantity > product.inventory) {
-                    document.getElementById('api_loading').classList.remove('show');
-        						alert('Số lượng hàng trong kho không đủ. Chúng tôi sẽ cập nhật sớm!');
-        						return false;
-                  } else {
-                    return callApi(`shopping_cart_01_cart/${cart_item_id}`, 'PUT', {product: product, quantity: new_quantity}).then((res) => {
-        							dispatch(actAddToCart(res.data.product, res.data.quantity));
-        							document.getElementById('api_loading').classList.remove('show');
-        						});
-                  }
-              } else { //thêm mới vì không tìm thấy id của sản phẩm nào trong giỏ hàng
-                return callApi('shopping_cart_01_cart', 'POST', {product, quantity}).then((res) => {
-      						dispatch(actAddToCart(res.data.product, res.data.quantity));
-      						document.getElementById('api_loading').classList.remove('show');
-      					});
-              }
-
-          }
-      })
-    }
-}
-
 export const actAddToCart = (product,quantity) => {
     return {
       type : Types.ADD_TO_CART,
